@@ -6,6 +6,7 @@ import {
   faGithub,
   faStackOverflow,
   faTwitter,
+  faLinkedinIn,
 } from '@fortawesome/free-brands-svg-icons'
 
 export default function Navbar() {
@@ -61,6 +62,12 @@ export default function Navbar() {
                   href="https://twitter.com/gon250"
                 >
                   <FontAwesomeIcon icon={faTwitter} />
+                </a>
+                <a
+                  className="button btn-sm is-light"
+                  href="https://www.linkedin.com/in/gbarbalopez"
+                >
+                  <FontAwesomeIcon icon={faLinkedinIn} />
                 </a>
               </div>
             </div>
