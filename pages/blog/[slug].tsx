@@ -1,4 +1,10 @@
 import React from 'react'
+import fs from 'fs'
+import html from 'remark-html'
+import highlight from 'remark-highlight.js'
+import unified from 'unified'
+import markdown from 'remark-parse'
+import matter from 'gray-matter'
 
 function BlogPostPage(props) {
   return (
@@ -17,16 +23,8 @@ function BlogPostPage(props) {
   )
 }
 
-// pass props to BlogPostPage component
 export async function getStaticProps(context) {
-  const fs = require('fs')
-  const html = require('remark-html')
-  const highlight = require('remark-highlight.js')
-  const unified = require('unified')
-  const markdown = require('remark-parse')
-  const matter = require('gray-matter')
-
-  const slug = context.params.slug // get slug from params
+  const slug = context.params.slug
   const path = `${process.cwd()}/contents/${slug}.md`
 
   // read file content and store into rawContent variable
@@ -54,8 +52,6 @@ export async function getStaticProps(context) {
 
 // generate HTML paths at build time
 export async function getStaticPaths(context) {
-  const fs = require('fs')
-
   const path = `${process.cwd()}/contents`
   const files = fs.readdirSync(path, 'utf-8')
 
