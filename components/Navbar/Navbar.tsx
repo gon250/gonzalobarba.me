@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -11,6 +11,10 @@ import {
 
 export default function Navbar() {
   const { pathname } = useRouter()
+  const [isActive, setIsActive] = useState('')
+
+  const handleMenu = () =>
+    isActive === '' ? setIsActive('is-active') : setIsActive('')
 
   return (
     <div className="container">
@@ -22,25 +26,26 @@ export default function Navbar() {
             </a>
           </Link>
           <a
+            onClick={() => handleMenu()}
             role="button"
             className="navbar-burger burger"
             aria-label="menu"
             aria-expanded="false"
-            data-target="navbarBasicExample"
+            data-target="navbarBasic"
           >
             <span aria-hidden="true" />
             <span aria-hidden="true" />
             <span aria-hidden="true" />
           </a>
         </div>
-        <div id="navbarBasicExample" className="navbar-menu">
+        <div id="navbarBasic" className={`navbar-menu ${isActive}`}>
           <div className="navbar-start">
-            <a className="navbar-item" href="/blog">
-              blog
-            </a>
-            <a className="navbar-item" href="/contact">
-              contact
-            </a>
+            <Link href="/blog">
+              <a className="navbar-item">blog</a>
+            </Link>
+            <Link href="/contact">
+              <a className="navbar-item">contact</a>
+            </Link>
           </div>
           <div className="navbar-end">
             <div className="navbar-item">
