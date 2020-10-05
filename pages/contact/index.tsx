@@ -9,7 +9,12 @@ export default function Contact() {
             <h3 className="title is-3">I'm happy to hear from you.</h3>
             <ul>
               <li>
-                <a href="http://github.com/gon250">Github</a>
+                <a href="https://github.com/gon250">Github</a>
+              </li>
+              <li>
+                <a href="https://stackoverflow.com/users/2545964/gon250?tab=profile">
+                  Stackoverflow
+                </a>
               </li>
               <li>
                 <a href="https://twitter.com/gon250">Twitter</a>
