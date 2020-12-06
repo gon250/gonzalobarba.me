@@ -2,7 +2,14 @@ import React from 'react'
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
 
-export default function Blog(props: { blogs: any[] }) {
+interface Post {
+  id: string
+  title: string
+  slug: string
+  date: string
+}
+
+export default function Blog(props: { blogs: Post[] }) {
   return (
     <div className="section">
       <div className="container">
@@ -10,24 +17,15 @@ export default function Blog(props: { blogs: any[] }) {
           <div className="column is-two-thirds">
             <h3 className="title is-4">Blog list</h3>
             <ul>
-              {props.blogs.map(
-                (
-                  blog: {
-                    id: string | number
-                    slug: any
-                    title: React.ReactNode
-                  },
-                  idx: any
-                ) => {
-                  return (
-                    <li key={blog.id}>
-                      <Link href={`/blog/${blog.slug}`}>
-                        <a>{blog.title}</a>
-                      </Link>
-                    </li>
-                  )
-                }
-              )}
+              {props.blogs.map((post: Post) => {
+                return (
+                  <li key={post.id}>
+                    <Link href={`/blog/${post.slug}`}>
+                      <a>{post.title}</a>
+                    </Link>
+                  </li>
+                )
+              })}
             </ul>
           </div>
         </div>
