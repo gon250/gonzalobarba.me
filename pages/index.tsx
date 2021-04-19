@@ -37,10 +37,10 @@ function IndexPage() {
             <div className="column is-6">
               <h3 className="title is-3">Hey, I’m Gonzalo</h3>
               <p>
-                I’m a full stack software developer, creative and ambitious.
-                This website is a compilation of the things I have
-                learned/shared over the years and in what I like to spend my
-                free time.
+                I’m a full stack software developer working as a contractor,
+                creative and ambitious. This website is a compilation of the
+                things I have learned/shared over the years and in what I like
+                to spend my free time.
               </p>
               <br />
               <p>
