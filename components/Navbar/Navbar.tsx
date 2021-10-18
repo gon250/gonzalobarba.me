@@ -50,26 +50,23 @@ export default function Navbar() {
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="buttons">
-                <a
-                  className="button btn-sm is-light"
-                  href="https://github.com/gon250"
-                >
+                <a className="button is-light" href="https://github.com/gon250">
                   <FontAwesomeIcon icon={faGithub} />
                 </a>
                 <a
-                  className="button btn-sm is-light"
+                  className="button is-light"
                   href="https://stackoverflow.com/users/2545964/gon250?tab=profile"
                 >
                   <FontAwesomeIcon icon={faStackOverflow} />
                 </a>
                 <a
-                  className="button btn-sm is-light"
+                  className="button is-light"
                   href="https://twitter.com/gon250"
                 >
                   <FontAwesomeIcon icon={faTwitter} />
                 </a>
                 <a
-                  className="button btn-sm is-light"
+                  className="button is-light"
                   href="https://www.linkedin.com/in/gbarbalopez"
                 >
                   <FontAwesomeIcon icon={faLinkedinIn} />
