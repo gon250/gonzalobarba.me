@@ -8,10 +8,10 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <>
+    <div className="font-mono">
       <Navbar />
       {children}
       <Footer />
-    </>
+    </div>
   )
 }

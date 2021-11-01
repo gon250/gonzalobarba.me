@@ -9,10 +9,6 @@ class MyDocument extends Document {
           {/** WebFont */}
           {/** stylesheets */}
           {/** scripts */}
-          <script
-            defer
-            src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"
-          ></script>
         </Head>
         <body className="my-body-class">
           <Main />

@@ -1,14 +1,17 @@
 import React from 'react'
+import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="footer has-background-white">
-      <div className="content has-text-centered">
-        <p>
+    <div className="grid place-items-center">
+      <footer className="my-16">
+        <p className="text-gray-500">
           © {new Date().getFullYear()}, Built with 💛 {` `}{' '}
-          <a href="https://www.twitter.com/gon250">Gonzalo</a>
+          <Link href="https://www.twitter.com/gon250">
+            <span className="text-pink-400">Gonzalo</span>
+          </Link>
         </p>
-      </div>
-    </footer>
+      </footer>
+    </div>
   )
 }

@@ -11,24 +11,20 @@ interface Post {
 
 export default function Blog(props: { blogs: Post[] }) {
   return (
-    <div className="section">
-      <div className="container">
-        <div className="columns is-centered">
-          <div className="column is-two-thirds">
-            <h3 className="title is-4">Blog list</h3>
-            <ul>
-              {props.blogs.map((post: Post) => {
-                return (
-                  <li key={post.id}>
-                    <Link href={`/blog/${post.slug}`}>
-                      <a>{post.title}</a>
-                    </Link>
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
-        </div>
+    <div className="grid place-items-center">
+      <div className="w-1/2 my-8">
+        <h3 className="font-courier text-3xl">Blog list</h3>
+        <ul className="my-4">
+          {props.blogs.map((post: Post) => {
+            return (
+              <li key={post.id} className="text-pink-500">
+                <Link href={`/blog/${post.slug}`}>
+                  <a>{post.title}</a>
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
       </div>
     </div>
   )

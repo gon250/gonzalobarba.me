@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import Head from 'next/head'
+import Link from 'next/link'
 
 function IndexPage() {
   return (
@@ -26,33 +26,37 @@ function IndexPage() {
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <div className="section">
-        <div className="container">
-          <div className="columns is-centered">
-            <div className="column is-4">
-              <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-                <img src="/me.jpg" />
-              </div>
-            </div>
-            <div className="column is-6">
-              <h3 className="title is-3">Hey, I’m Gonzalo</h3>
-              <p>
-                I’m a full stack software developer, creative and ambitious.
-                This website is a compilation of the things I have
-                learned/shared over the years and in what I like to spend my
-                free time.
-              </p>
-              <br />
-              <p>
-                I have a <a href="https://github.com/gon250">GitHub</a> account
-                where you can follow what I'm doing. Or you can contact me by{' '}
-                <a href="https://twitter.com/gon250">Twitter</a>. Or both.
-              </p>
-              <br />
-              <p>
-                You can read my <Link href="/blog">posts </Link> or contact me.
-              </p>
-            </div>
+      <div className="grid place-items-center my-6">
+        <div className="flex">
+          <img
+            className="rounded-lg shadow-xl mx-12"
+            width={300}
+            height={300}
+            src="/me.jpg"
+            alt="personal_photo"
+          />
+          <div className="mx-12">
+            <h3 className="font-courier text-3xl">Hey, I’m Gonzalo</h3>
+            <p className="mt-8 text-gray-600 leading-6">
+              I’m a full stack software developer, creative and ambitious. This
+              website is a compilation of the things I have learned/shared over
+              the years and in what I like to spend my free time.
+            </p>
+            <p className="mt-4 text-gray-600 leading-6">
+              I have a{' '}
+              <Link href="https://github.com/gon250">
+                <span className="text-pink-400">GitHub</span>
+              </Link>{' '}
+              account where you can follow what I'm doing. Or you can contact me
+              by{' '}
+              <Link href="https://twitter.com/gon250">
+                <span className="text-pink-400">Twitter</span>
+              </Link>
+              . Or both.
+            </p>
+            <p className="mt-4 text-gray-600 leading-6">
+              You can read my posts or contact me.
+            </p>
           </div>
         </div>
       </div>
