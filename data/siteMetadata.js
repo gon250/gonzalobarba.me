@@ -2,7 +2,7 @@ const siteMetadata = {
   title: 'Gonzalo Barba',
   author: 'Gonzalo Barba',
   headerTitle: 'Gonzalo Barba',
-  description: 'Gonzalo Barba personal Blog',
+  description: 'Blog',
   language: 'es',
   theme: 'system', // system, dark or light
   siteUrl: 'https://gonzalobarba.me',
