@@ -47,7 +47,7 @@ const NewsletterForm = ({ title = 'Apúntate a la newsletter' }) => {
             className="px-4 rounded-md w-72 dark:bg-black focus:outline-none focus:ring-2 focus:border-transparent focus:ring-primary-600"
             id="email-input"
             name="email"
-            placeholder={subscribed ? "Ya está suscrito! 🎉 " : 'Introduce tu email'}
+            placeholder={subscribed ? 'Ya está suscrito! 🎉 ' : 'Introduce tu email'}
             ref={inputEl}
             required
             type="email"
