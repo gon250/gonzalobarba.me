@@ -8,10 +8,12 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="font-mono">
+    <main className="font-mono">
       <Navbar />
-      {children}
-      <Footer />
-    </div>
+      <section className="relative w-full h-full py-20 min-h-screen">
+        <div className="container mx-auto px-4 h-full">{children}</div>
+        <Footer />
+      </section>
+    </main>
   )
 }
