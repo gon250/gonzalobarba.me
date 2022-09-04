@@ -16,6 +16,8 @@ import Layout, { WEBSITE_HOST_URL } from '../../components/Layout';
 import { MetaProps } from '../../types/layout';
 import { PostType } from '../../types/post';
 import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils';
+import rehypeRaw from 'rehype-raw';
+import { nodeTypes } from '@mdx-js/mdx';
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -67,7 +69,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     // Optionally pass remark/rehype plugins
     mdxOptions: {
       remarkPlugins: [require('remark-code-titles')],
-      rehypePlugins: [mdxPrism, rehypeSlug, rehypeAutolinkHeadings],
+      rehypePlugins: [
+        [rehypeRaw, { passThrough: nodeTypes }],
+        mdxPrism,
+        rehypeSlug,
+        rehypeAutolinkHeadings,
+      ],
     },
     scope: data,
   });
