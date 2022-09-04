@@ -1,102 +1,64 @@
-import Link from '@/components/Link'
-import { PageSEO } from '@/components/SEO'
-import Tag from '@/components/Tag'
-import siteMetadata from '@/data/siteMetadata'
-import { getAllFilesFrontMatter } from '@/lib/mdx'
-import formatDate from '@/lib/utils/formatDate'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import { PostFrontMatter } from 'types/PostFrontMatter'
-import NewsletterForm from '@/components/NewsletterForm'
+import { format, parseISO } from 'date-fns';
+import { GetStaticProps } from 'next';
+import Link from 'next/link';
+import React from 'react';
+import Layout from '../components/Layout';
+import { getAllPosts } from '../lib/api';
+import { PostType } from '../types/post';
 
-const MAX_DISPLAY = 5
+type IndexProps = {
+  posts: PostType[];
+};
 
-export const getStaticProps: GetStaticProps<{ posts: PostFrontMatter[] }> = async () => {
-  const posts = await getAllFilesFrontMatter('blog')
-
-  return { props: { posts } }
-}
-
-export default function Home({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
+export const Index = ({ posts }: IndexProps): JSX.Element => {
   return (
-    <>
-      <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="pt-6 pb-8 space-y-2 md:space-y-5">
-          <h1 className="text-lg font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl sm:leading-10 md:text-3xl md:leading-14">
-            Últimos artículos
-          </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            {siteMetadata.description}
+    <Layout>
+      <h1>Home Page</h1>
+      <p>Next.js starter for your next blog or personal site. Built with:</p>
+      <ul className="list-disc pl-4 my-6">
+        <li>Next.js</li>
+        <li className="mt-2">Typescript</li>
+        <li className="mt-2">MDX</li>
+        <li className="mt-2">Tailwind CSS</li>
+      </ul>
+
+      <a
+        href="https://github.com/ChangoMan/nextjs-typescript-mdx-blog"
+        className="inline-block px-7 py-3 rounded-md text-white dark:text-white bg-blue-600 hover:bg-blue-700 hover:text-white dark:hover:text-white"
+      >
+        Get the source code!
+      </a>
+
+      {posts.map((post) => (
+        <article key={post.slug} className="mt-12">
+          <p className="mb-1 text-sm text-gray-500 dark:text-gray-400">
+            {format(parseISO(post.date), 'MMMM dd, yyyy')}
           </p>
-        </div>
-        <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-          {!posts.length && 'No posts found.'}
-          {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
-            const { slug, date, title, summary, tags } = frontMatter
-            return (
-              <li key={slug} className="py-12">
-                <article>
-                  <div className="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
-                    <dl>
-                      <dt className="sr-only">Published on</dt>
-                      <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                        <time dateTime={date}>{formatDate(date)}</time>
-                      </dd>
-                    </dl>
-                    <div className="space-y-5 xl:col-span-3">
-                      <div className="space-y-6">
-                        <div>
-                          <h2 className="text-2xl font-bold leading-8 tracking-tight">
-                            <Link
-                              href={`/blog/${slug}`}
-                              className="text-gray-900 dark:text-gray-100"
-                            >
-                              {title}
-                            </Link>
-                          </h2>
-                          <div className="flex flex-wrap">
-                            {tags.map((tag) => (
-                              <Tag key={tag} text={tag} />
-                            ))}
-                          </div>
-                        </div>
-                        <div className="prose text-gray-500 max-w-none dark:text-gray-400">
-                          {summary}
-                        </div>
-                      </div>
-                      <div className="text-base font-medium leading-6">
-                        <Link
-                          href={`/blog/${slug}`}
-                          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                          aria-label={`Read "${title}"`}
-                        >
-                          articulo completo &rarr;
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              </li>
-            )
-          })}
-        </ul>
-      </div>
-      {posts.length > MAX_DISPLAY && (
-        <div className="flex justify-end text-base font-medium leading-6">
-          <Link
-            href="/blog"
-            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-            aria-label="all posts"
-          >
-            All Posts &rarr;
-          </Link>
-        </div>
-      )}
-      {siteMetadata.newsletter.provider !== '' && (
-        <div className="flex items-center justify-center pt-4">
-          <NewsletterForm />
-        </div>
-      )}
-    </>
-  )
-}
+          <h1 className="mb-2 text-xl">
+            <Link as={`/posts/${post.slug}`} href={`/posts/[slug]`}>
+              <a className="text-gray-900 dark:text-white dark:hover:text-blue-400">
+                {post.title}
+              </a>
+            </Link>
+          </h1>
+          <p className="mb-3">{post.description}</p>
+          <p>
+            <Link as={`/posts/${post.slug}`} href={`/posts/[slug]`}>
+              <a>Read More</a>
+            </Link>
+          </p>
+        </article>
+      ))}
+    </Layout>
+  );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = getAllPosts(['date', 'description', 'slug', 'title']);
+
+  return {
+    props: { posts },
+  };
+};
+
+export default Index;
