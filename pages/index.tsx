@@ -29,16 +29,16 @@ export default function Home() {
             </div>
             <div className="flex items-center">
               <nav className="items-center hidden text-lg text-gray-800 uppercase font-sen dark:text-white lg:flex">
-                <a href="#" className="flex px-6 py-2 hover:text-black">
-                  Works
-                </a>
-                <a href="#" className="flex px-6 py-2 hover:text-black">
-                  Resume
-                </a>
-                <a href="#" className="flex px-6 py-2 hover:text-black">
-                  Services
-                </a>
-                <a href="#" className="flex px-6 py-2 hover:text-black">
+                {/*<a href="#" className="flex px-6 py-2 hover:text-black">*/}
+                {/*  Works*/}
+                {/*</a>*/}
+                {/*<a href="#" className="flex px-6 py-2 hover:text-black">*/}
+                {/*  Resume*/}
+                {/*</a>*/}
+                {/*<a href="#" className="flex px-6 py-2 hover:text-black">*/}
+                {/*  Services*/}
+                {/*</a>*/}
+                <a href="mailto:me@gonzalobarba.com" className="flex px-6 py-2 hover:text-black">
                   Contact
                 </a>
               </nav>
@@ -66,10 +66,10 @@ export default function Home() {
               </p>
               <h2
                 className="max-w-3xl py-2 mx-auto text-5xl font-bold text-center text-gray-800 md:text-6xl dark:text-white">
-                Building digital products, brands, and experiences.
+                Full Stack Engineer, front-end passionate and games enthusiast.
               </h2>
               <div className="flex items-center justify-center mt-4">
-                <a href="#"
+                <a href="mailto:me@gonzalobarba.com"
                    className="px-4 py-2 my-2 text-gray-800 uppercase bg-transparent border-2 border-gray-800 md:mt-16 dark:text-gray-800 dark:bg-white hover:dark:bg-gray-100 dark:text-white hover:bg-gray-800 hover:text-white text-md">
                   CONNECT WITH ME
                 </a>
