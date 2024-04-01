@@ -3,6 +3,8 @@ import Image from "next/image";
 
 import profilePic from "../public/me.jpg";
 
+import PlaningPokerLogo from "../public/poker-logo.svg";
+
 export default function Home() {
   return (
     <>
@@ -53,6 +55,98 @@ export default function Home() {
             </div>
           </div>
         </header>
+
+
+        <div className="min-h-screen flex flex-col lg:flex-row max-lg:pb-16 max-w-[1800px] mx-auto">
+          {/*Profile details*/}
+          <section className="shrink-0 space-y-4 lg:space-y-8 lg:w-[350px] xl:w-[500px] p-6 lg:p-16 lg:pr-0 xl:pr-16">
+            <div className="flex gap-4 lg:gap-8 lg:flex-col justify-start items-start"><span
+              className="relative shrink-0">
+              <Image alt="arvid profile picture" width="176" height="176" decoding="async"
+                     data-nimg="1"
+                     className="w-20 h-20 lg:w-44 lg:h-44 rounded-full object-cover"
+                     src={profilePic} />
+              <div className="absolute inset-0 rounded-full shadow-[0_0_0px_1px_rgba(0,0,0,0.06)]"></div></span>
+              <div className="flex-1">
+                <h1 className="font-bold lg:font-extrabold text-xl lg:text-4xl mb-1 lg:mb-3">
+                  Gonzalo Barba
+                </h1>
+              </div>
+              <button className="btn btn-square btn-primary btn-sm lg:hidden" aria-label="Share this Indie Page">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                     stroke="currentColor" className="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15m0-3l-3-3m0 0l-3 3m3-3V15"></path>
+                </svg>
+              </button>
+            </div>
+            <div className="reactMarkDown lg:text-lg leading-relaxed -space-y-4">
+              <p>
+                Full Stack Engineer, front-end passionate and games enthusiast.
+              </p>
+            </div>
+            <div className="hidden lg:block"></div>
+          </section>
+          {/*Side projects details*/}
+          <section className="lg:h-screen lg:overflow-scroll noscrollbar w-full max-w-[1100px]">
+            <div className="divider px-6 my-0 lg:hidden "></div>
+            <ul className="max-lg:space-y-4 p-6 lg:p-16 lg:grid lg:grid-cols-2 lg:gap-8">
+              <li className="card duration-200 h-min col-span-1">
+                <a
+                  className="cursor-pointer block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+                  href="https://lluvia-app.vercel.app/"
+                  target="_blank" rel="noreferrer"
+                >
+                  <div className="flex items-center gap-y-1 gap-x-2 lg:gap-x-3 flex-wrap">
+                    <span>
+                      🌧️
+                    </span>
+                    <p className="mr-auto font-bold lg:text-lg">LluviaApp</p>
+                    <div className="flex gap-2">
+                      <span
+                        className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-green-400">
+                        Active
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-base-content/80 text-sm lg:text-base">
+                    Nature sounds generator for relaxation and focus.
+                  </p>
+                </a>
+              </li>
+              <li className="card duration-200 h-min col-span-1">
+                <a
+                  className="cursor-pointer block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+                  href="https://www.poinpoin.io/"
+                  target="_blank" rel="noreferrer"
+                >
+                  <div className="flex items-center gap-y-1 gap-x-2 lg:gap-x-3 flex-wrap">
+                    <Image alt="PermanentLink Logo"
+                           width={20}
+                           height={20}
+                           className="w-5 h-5 lg:w-6 lg:h-6 w-5 h-5 lg:w-6 lg:h-6"
+                           src={PlaningPokerLogo} />
+                    <p className="mr-auto font-bold lg:text-lg">Poinpoin</p>
+                    <div className="flex gap-2">
+                      <span
+                        className="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-red-400">
+                        Discontinued
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-base-content/80 text-sm lg:text-base">
+                    Interactive planning poker tool for agile teams.
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        {/*Tailwind divider*/}
+        <div className="relative z-10 bg-purple-500 flex items-center justify-center w-full h-12"></div>
+
+
         <div className="relative z-20 flex items-center">
           <div className="container relative flex flex-col items-center justify-between px-6 py-4 mx-auto">
             <div className="flex flex-col">
