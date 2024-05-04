@@ -1,10 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
 
-import profilePic from "../public/me.jpg";
+import ProfileImg from "../public/me.jpg";
 
 import PlaningPokerLogo from "../public/poker-logo.svg";
 import SupaHabitsLogo from "../public/supahabits-logo.png";
+import Header from "../components/header";
 
 export default function Home() {
   return (
@@ -17,45 +18,7 @@ export default function Home() {
       </Head>
 
       <main className="relative h-screen overflow-hidden font-mono bg-white dark:bg-gray-800">
-        <header className="z-30 flex items-center w-full h-24 sm:h-32">
-          <div className="container flex items-center justify-between px-6 mx-auto">
-            <div className="flex items-center text-3xl font-black text-gray-800 uppercase dark:text-white">
-              <svg width="25" height="25" viewBox="0 0 1792 1792" fill="currentColor"
-                   xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M1664 1504v-768q-32 36-69 66-268 206-426 338-51 43-83 67t-86.5 48.5-102.5 24.5h-2q-48 0-102.5-24.5t-86.5-48.5-83-67q-158-132-426-338-37-30-69-66v768q0 13 9.5 22.5t22.5 9.5h1472q13 0 22.5-9.5t9.5-22.5zm0-1051v-24.5l-.5-13-3-12.5-5.5-9-9-7.5-14-2.5h-1472q-13 0-22.5 9.5t-9.5 22.5q0 168 147 284 193 152 401 317 6 5 35 29.5t46 37.5 44.5 31.5 50.5 27.5 43 9h2q20 0 43-9t50.5-27.5 44.5-31.5 46-37.5 35-29.5q208-165 401-317 54-43 100.5-115.5t46.5-131.5zm128-37v1088q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-1088q0-66 47-113t113-47h1472q66 0 113 47t47 113z">
-                </path>
-              </svg>
-              <span className="mt-1 ml-3 text-xs">
-                    ME@GONZALOBARBA.COM
-                </span>
-            </div>
-            <div className="flex items-center">
-              <nav className="items-center hidden text-lg text-gray-800 uppercase font-sen dark:text-white lg:flex">
-                {/*<a href="#" className="flex px-6 py-2 hover:text-black">*/}
-                {/*  Works*/}
-                {/*</a>*/}
-                {/*<a href="#" className="flex px-6 py-2 hover:text-black">*/}
-                {/*  Resume*/}
-                {/*</a>*/}
-                {/*<a href="#" className="flex px-6 py-2 hover:text-black">*/}
-                {/*  Services*/}
-                {/*</a>*/}
-                <a href="mailto:me@gonzalobarba.com" className="flex px-6 py-2 hover:text-black">
-                  Contact
-                </a>
-              </nav>
-              <button className="flex flex-col ml-4 lg:hidden">
-                    <span className="w-6 h-1 mb-1 bg-gray-800 dark:bg-white">
-                    </span>
-                <span className="w-6 h-1 mb-1 bg-gray-800 dark:bg-white">
-                    </span>
-                <span className="w-6 h-1 mb-1 bg-gray-800 dark:bg-white">
-                    </span>
-              </button>
-            </div>
-          </div>
-        </header>
+        <Header />
 
 
         <div className="min-h-screen flex flex-col lg:flex-row max-lg:pb-16 max-w-[1800px] mx-auto">
@@ -66,20 +29,13 @@ export default function Home() {
               <Image alt="arvid profile picture" width="176" height="176" decoding="async"
                      data-nimg="1"
                      className="w-20 h-20 lg:w-44 lg:h-44 rounded-full object-cover"
-                     src={profilePic} />
+                     src={ProfileImg} />
               <div className="absolute inset-0 rounded-full shadow-[0_0_0px_1px_rgba(0,0,0,0.06)]"></div></span>
               <div className="flex-1">
                 <h1 className="font-bold lg:font-extrabold text-xl lg:text-4xl mb-1 lg:mb-3">
                   Gonzalo Barba
                 </h1>
               </div>
-              <button className="btn btn-square btn-primary btn-sm lg:hidden" aria-label="Share this Indie Page">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-                     stroke="currentColor" className="w-5 h-5">
-                  <path strokeLinecap="round" strokeLinejoin="round"
-                        d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15m0-3l-3-3m0 0l-3 3m3-3V15"></path>
-                </svg>
-              </button>
             </div>
             <div className="reactMarkDown lg:text-lg leading-relaxed -space-y-4">
               <p>
@@ -201,7 +157,7 @@ export default function Home() {
             <div className="flex flex-col">
               <Image
                 className="mx-auto rounded-full w-28"
-                src={profilePic}
+                src={ProfileImg}
                 alt="Picture of the author"
               />
               <p className="my-6 text-3xl text-center dark:text-white">
