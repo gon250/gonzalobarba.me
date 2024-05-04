@@ -20,7 +20,6 @@ export default function Home() {
       <main className="relative h-screen overflow-hidden font-mono bg-white dark:bg-gray-800">
         <Header />
 
-
         <div className="min-h-screen flex flex-col lg:flex-row max-lg:pb-16 max-w-[1800px] mx-auto">
           {/*Profile details*/}
           <section className="shrink-0 space-y-4 lg:space-y-8 lg:w-[350px] xl:w-[500px] p-6 lg:p-16 lg:pr-0 xl:pr-16">
@@ -146,35 +145,6 @@ export default function Home() {
               </li>
             </ul>
           </section>
-        </div>
-
-        {/*Tailwind divider*/}
-        <div className="relative z-10 bg-purple-500 flex items-center justify-center w-full h-12"></div>
-
-
-        <div className="relative z-20 flex items-center">
-          <div className="container relative flex flex-col items-center justify-between px-6 py-4 mx-auto">
-            <div className="flex flex-col">
-              <Image
-                className="mx-auto rounded-full w-28"
-                src={ProfileImg}
-                alt="Picture of the author"
-              />
-              <p className="my-6 text-3xl text-center dark:text-white">
-                Hi, I&#x27;m Gonzalo 👨🏽‍💻
-              </p>
-              <h2
-                className="max-w-3xl py-2 mx-auto text-5xl font-bold text-center text-gray-800 md:text-6xl dark:text-white">
-                Full Stack Engineer, front-end passionate and games enthusiast.
-              </h2>
-              <div className="flex items-center justify-center mt-4">
-                <a href="mailto:me@gonzalobarba.com"
-                   className="px-4 py-2 my-2 text-gray-800 uppercase bg-transparent border-2 border-gray-800 md:mt-16 dark:text-gray-800 dark:bg-white hover:dark:bg-gray-100 dark:text-white hover:bg-gray-800 hover:text-white text-md">
-                  CONNECT WITH ME
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </main>
     </>
