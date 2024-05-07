@@ -1,11 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
+import { FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 import ProfileImg from "../public/me.jpg";
 
 import PlaningPokerLogo from "../public/poker-logo.svg";
 import SupaHabitsLogo from "../public/supahabits-logo.png";
 import Header from "../components/header";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -19,29 +21,38 @@ export default function Home() {
 
       <main className="relative h-screen overflow-hidden font-mono bg-white dark:bg-gray-800">
         <Header />
-
         <div className="min-h-screen flex flex-col lg:flex-row max-lg:pb-16 max-w-[1800px] mx-auto">
-          {/*Profile details*/}
           <section className="shrink-0 space-y-4 lg:space-y-8 lg:w-[350px] xl:w-[500px] p-6 lg:p-16 lg:pr-0 xl:pr-16">
-            <div className="flex gap-4 lg:gap-8 lg:flex-col justify-start items-start"><span
-              className="relative shrink-0">
-              <Image alt="arvid profile picture" width="176" height="176" decoding="async"
-                     data-nimg="1"
-                     className="w-20 h-20 lg:w-44 lg:h-44 rounded-full object-cover"
-                     src={ProfileImg} />
-              <div className="absolute inset-0 rounded-full shadow-[0_0_0px_1px_rgba(0,0,0,0.06)]"></div></span>
+            <div className="flex gap-4 lg:gap-8 lg:flex-col justify-start items-start">
+              <Image
+                alt="profile picture"
+                width="176"
+                height="176"
+                decoding="async"
+                className="w-20 h-20 lg:w-44 lg:h-44 rounded-full object-cover"
+                src={ProfileImg}
+              />
               <div className="flex-1">
                 <h1 className="font-bold lg:font-extrabold text-xl lg:text-4xl mb-1 lg:mb-3">
                   Gonzalo Barba
                 </h1>
               </div>
             </div>
-            <div className="reactMarkDown lg:text-lg leading-relaxed -space-y-4">
+            <div className="lg:text-lg leading-relaxed -space-y-4">
               <p>
                 Full Stack Engineer, front-end passionate and games enthusiast.
               </p>
             </div>
-            <div className="hidden lg:block"></div>
+            <div className="lg:text-lg leading-relaxed -space-y-4">
+              <div className="flex gap-2 text-xl">
+                <Link href="https://twitter.com/zalo250" className="hover:cursor-pointer">
+                  <FaXTwitter />
+                </Link>
+                <Link href="https://www.linkedin.com/in/gbarbalopez/" className="hover:cursor-pointer">
+                  <FaLinkedin />
+                </Link>
+              </div>
+            </div>
           </section>
           {/*Side projects details*/}
           <section className="lg:h-screen lg:overflow-scroll noscrollbar w-full max-w-[1100px]">
