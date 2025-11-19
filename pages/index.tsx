@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { useState, useEffect } from "react";
 
 import ProfileImg from "../public/me.jpg";
 
@@ -10,6 +11,28 @@ import Header from "../components/header";
 import Link from "next/link";
 
 export default function Home() {
+  const [darkMode, setDarkMode] = useState(() => {
+    // Initialize from localStorage if available
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('darkMode') === 'true';
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    // Apply dark mode class to document
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('darkMode', 'true');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('darkMode', 'false');
+    }
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
   return (
     <>
       <Head>
@@ -19,9 +42,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="relative h-screen overflow-hidden font-mono bg-white dark:bg-gray-800">
-        <Header />
-        <div className="min-h-screen flex flex-col lg:flex-row max-lg:pb-16 max-w-[1800px] mx-auto">
+      <main className="relative min-h-screen font-mono bg-white dark:bg-gray-900 transition-colors duration-300">
+        <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        <div className="flex flex-col lg:flex-row pb-8 lg:pb-0 max-w-[1800px] mx-auto">
           <section className="shrink-0 space-y-4 lg:space-y-8 lg:w-[350px] xl:w-[500px] p-6 lg:p-16 lg:pr-0 xl:pr-16">
             <div className="flex gap-4 lg:gap-8 lg:flex-col justify-start items-start">
               <Image
@@ -33,34 +56,34 @@ export default function Home() {
                 src={ProfileImg}
               />
               <div className="flex-1">
-                <h1 className="font-bold lg:font-extrabold text-xl lg:text-4xl mb-1 lg:mb-3">
+                <h1 className="font-bold lg:font-extrabold text-xl lg:text-4xl mb-1 lg:mb-3 text-gray-900 dark:text-white">
                   Gonzalo Barba
                 </h1>
               </div>
             </div>
-            <div className="lg:text-lg leading-relaxed -space-y-4">
-              <p>
+            <div className="lg:text-lg leading-relaxed">
+              <p className="text-gray-700 dark:text-gray-300">
                 Full Stack Engineer, front-end passionate and games enthusiast.
               </p>
             </div>
-            <div className="lg:text-lg leading-relaxed -space-y-4">
-              <div className="flex gap-2 text-xl">
-                <Link href="https://twitter.com/zalo250" className="hover:cursor-pointer">
+            <div className="lg:text-lg leading-relaxed">
+              <div className="flex gap-2 text-xl text-gray-700 dark:text-gray-300">
+                <Link href="https://twitter.com/zalo250" className="hover:cursor-pointer hover:text-gray-900 dark:hover:text-white transition-colors">
                   <FaXTwitter />
                 </Link>
-                <Link href="https://www.linkedin.com/in/gbarbalopez/" className="hover:cursor-pointer">
+                <Link href="https://www.linkedin.com/in/gbarbalopez/" className="hover:cursor-pointer hover:text-gray-900 dark:hover:text-white transition-colors">
                   <FaLinkedin />
                 </Link>
               </div>
             </div>
           </section>
           {/*Side projects details*/}
-          <section className="lg:h-screen lg:overflow-scroll noscrollbar w-full max-w-[1100px]">
-            <div className="divider px-6 my-0 lg:hidden "></div>
-            <ul className="max-lg:space-y-4 p-6 lg:p-16 lg:grid lg:grid-cols-2 lg:gap-8">
-              <li className="card duration-200 h-min col-span-1">
+          <section className="lg:h-screen lg:overflow-y-auto lg:overflow-x-hidden w-full max-w-[1100px]">
+            <div className="border-t border-gray-200 dark:border-gray-700 px-6 my-0 lg:hidden"></div>
+            <ul className="space-y-4 p-6 lg:p-16 lg:grid lg:grid-cols-2 lg:gap-8 lg:space-y-0 flex flex-col items-center lg:items-stretch lg:flex-none">
+              <li className="card duration-200 h-min col-span-1 w-full">
                 <a
-                  className="cursor-pointer block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+                  className="cursor-pointer block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 transition-colors"
                   href="https://www.supahabits.com"
                   target="_blank" rel="noreferrer"
                 >
@@ -68,70 +91,70 @@ export default function Home() {
                     <Image alt="PermanentLink Logo"
                            width={20}
                            height={20}
-                           className="w-5 h-5 lg:w-6 lg:h-6 w-5 h-5 lg:w-6 lg:h-6"
+                           className="w-5 h-5 lg:w-6 lg:h-6"
                            src={SupaHabitsLogo} />
-                    <p className="mr-auto font-bold lg:text-lg">SupaHabits</p>
+                    <p className="mr-auto font-bold lg:text-lg text-gray-900 dark:text-white">SupaHabits</p>
                     <div className="flex gap-2">
                       <span
-                        className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-green-400">
+                        className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-green-400 dark:border-green-600">
                         Active
                       </span>
                     </div>
                   </div>
-                  <p className="text-base-content/80 text-sm lg:text-base">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mt-2">
                     Creating beneficial habits and finding solutions to common problems.
                   </p>
                 </a>
               </li>
-              <li className="card duration-200 h-min col-span-1">
+              <li className="card duration-200 h-min col-span-1 w-full">
                 <a
-                  className="cursor-pointer block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+                  className="cursor-pointer block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 transition-colors"
                   href="https://www.shareplaylist.club/"
                   target="_blank" rel="noreferrer"
                 >
                   <div className="flex items-center gap-y-1 gap-x-2 lg:gap-x-3 flex-wrap">
-                    <span>
+                    <span className="text-xl">
                       🎸
                     </span>
-                    <p className="mr-auto font-bold lg:text-lg">SharePlaylist</p>
+                    <p className="mr-auto font-bold lg:text-lg text-gray-900 dark:text-white">SharePlaylist</p>
                     <div className="flex gap-2">
                       <span
-                        className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-green-400">
+                        className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-green-400 dark:border-green-600">
                         Active
                       </span>
                     </div>
                   </div>
-                  <p className="text-base-content/80 text-sm lg:text-base">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mt-2">
                     Create music playlists and invite friends to add their favorite tracks.
                   </p>
                 </a>
               </li>
-              <li className="card duration-200 h-min col-span-1">
+              <li className="card duration-200 h-min col-span-1 w-full">
                 <a
-                  className="cursor-pointer block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+                  className="cursor-pointer block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 transition-colors"
                   href="https://lluvia-app.vercel.app/"
                   target="_blank" rel="noreferrer"
                 >
                   <div className="flex items-center gap-y-1 gap-x-2 lg:gap-x-3 flex-wrap">
-                    <span>
+                    <span className="text-xl">
                       🌧️
                     </span>
-                    <p className="mr-auto font-bold lg:text-lg">LluviaApp</p>
+                    <p className="mr-auto font-bold lg:text-lg text-gray-900 dark:text-white">LluviaApp</p>
                     <div className="flex gap-2">
                       <span
-                        className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-green-400">
+                        className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-green-400 dark:border-green-600">
                         Active
                       </span>
                     </div>
                   </div>
-                  <p className="text-base-content/80 text-sm lg:text-base">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mt-2">
                     Nature sounds generator for relaxation and focus.
                   </p>
                 </a>
               </li>
-              <li className="card duration-200 h-min col-span-1">
+              <li className="card duration-200 h-min col-span-1 w-full">
                 <a
-                  className="cursor-pointer block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+                  className="cursor-pointer block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 transition-colors"
                   href="https://www.poinpoin.io/"
                   target="_blank" rel="noreferrer"
                 >
@@ -139,40 +162,40 @@ export default function Home() {
                     <Image alt="PermanentLink Logo"
                            width={20}
                            height={20}
-                           className="w-5 h-5 lg:w-6 lg:h-6 w-5 h-5 lg:w-6 lg:h-6"
+                           className="w-5 h-5 lg:w-6 lg:h-6"
                            src={PlaningPokerLogo} />
-                    <p className="mr-auto font-bold lg:text-lg">Poinpoin</p>
+                    <p className="mr-auto font-bold lg:text-lg text-gray-900 dark:text-white">Poinpoin</p>
                     <div className="flex gap-2">
                       <span
-                        className="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-red-400">
+                        className="bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-red-400 dark:border-red-600">
                         Discontinued
                       </span>
                     </div>
                   </div>
-                  <p className="text-base-content/80 text-sm lg:text-base">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mt-2">
                     Interactive planning poker tool for agile teams.
                   </p>
                 </a>
               </li>
-              <li className="card duration-200 h-min col-span-1">
+              <li className="card duration-200 h-min col-span-1 w-full">
                 <Link
-                  className="cursor-pointer block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+                  className="cursor-pointer block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 transition-colors"
                   href="/mareas-sanlucar"
                 >
                   <div className="flex items-center gap-y-1 gap-x-2 lg:gap-x-3 flex-wrap">
-                    <span>
+                    <span className="text-xl">
                       🌊
                     </span>
-                    <p className="mr-auto font-bold lg:text-lg">Mareas Sanlúcar</p>
+                    <p className="mr-auto font-bold lg:text-lg text-gray-900 dark:text-white">Mareas Sanlúcar</p>
                     <div className="flex gap-2">
                       <span
-                        className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-green-400"
+                        className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-green-400 dark:border-green-600"
                       >
                         Active
                       </span>
                     </div>
                   </div>
-                  <p className="text-base-content/80 text-sm lg:text-base">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mt-2">
                     iOS app to view Sanlúcar de Barrameda tides in real time.
                   </p>
                 </Link>
