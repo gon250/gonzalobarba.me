@@ -200,6 +200,29 @@ export default function Home() {
                   </p>
                 </Link>
               </li>
+              <li className="card duration-200 h-min col-span-1 w-full">
+                <Link
+                  className="cursor-pointer block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 transition-colors"
+                  href="/balanzia"
+                >
+                  <div className="flex items-center gap-y-1 gap-x-2 lg:gap-x-3 flex-wrap">
+                    <span className="text-xl">
+                      🔋
+                    </span>
+                    <p className="mr-auto font-bold lg:text-lg text-gray-900 dark:text-white">Balanzia</p>
+                    <div className="flex gap-2">
+                      <span
+                        className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-green-400 dark:border-green-600"
+                      >
+                        Active
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mt-2">
+                    Calculate your body battery, bio age and more with Balanzia.
+                  </p>
+                </Link>
+              </li>
             </ul>
           </section>
         </div>
