@@ -1,8 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
+import { useLanguage } from "../contexts/LanguageContext";
+import Header from "../components/header";
 
 export default function BalanziaSupport() {
+  const { t } = useLanguage();
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
 
@@ -42,22 +45,23 @@ export default function BalanziaSupport() {
         <title>Balanzia – Support</title>
       </Head>
       <main className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+        <Header />
         <section className="max-w-3xl mx-auto px-6 py-16 font-mono">
           <Link href="/" className="text-blue-600 hover:underline">
-            ← Back to home
+            {t('balanzia.backToHome')}
           </Link>
           <header className="mt-6 mb-10 space-y-4">
             <p className="text-4xl">🔋</p>
-            <h1 className="text-3xl font-bold">Balanzia</h1>
+            <h1 className="text-3xl font-bold">{t('balanzia.title')}</h1>
             <p className="text-base text-gray-600 dark:text-gray-300">
-              Calculate your body battery, bio age and more with Balanzia.
+              {t('balanzia.subtitle')}
             </p>
           </header>
 
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="name" className="block text-sm font-semibold mb-2">
-                Name
+                {t('balanzia.form.name')}
               </label>
               <input
                 id="name"
@@ -70,7 +74,7 @@ export default function BalanziaSupport() {
 
             <div>
               <label htmlFor="email" className="block text-sm font-semibold mb-2">
-                Email
+                {t('balanzia.form.email')}
               </label>
               <input
                 id="email"
@@ -83,7 +87,7 @@ export default function BalanziaSupport() {
 
             <div>
               <label htmlFor="message" className="block text-sm font-semibold mb-2">
-                Message
+                {t('balanzia.form.message')}
               </label>
               <textarea
                 id="message"
@@ -99,26 +103,26 @@ export default function BalanziaSupport() {
               disabled={status === "loading"}
               className="w-full lg:w-auto px-6 py-2 font-semibold rounded-md bg-gray-900 text-white hover:bg-gray-700 disabled:opacity-50 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-gray-300"
             >
-              {status === "loading" ? "Sending…" : "Send"}
+              {status === "loading" ? t('balanzia.form.sending') : t('balanzia.form.send')}
             </button>
 
             {status === "success" && (
-              <p className="text-green-600 dark:text-green-400">Thank you! I will get back to you soon.</p>
+              <p className="text-green-600 dark:text-green-400">{t('balanzia.form.success')}</p>
             )}
             {status === "error" && (
-              <p className="text-red-600 dark:text-red-400">{errorMessage || "An error occurred. Please try again."}</p>
+              <p className="text-red-600 dark:text-red-400">{errorMessage || t('balanzia.form.error')}</p>
             )}
           </form>
 
           <section className="mt-14 space-y-6">
-            <h2 className="text-2xl font-semibold">Privacy Policy</h2>
-            
+            <h2 className="text-2xl font-semibold">{t('balanzia.privacy.title')}</h2>
+
             <p className="text-base text-gray-600 dark:text-gray-300">
-              This privacy policy explains how Balanzia ("we", "us", "our") handles your data when you use the Balanzia mobile application (the "App").
+              {t('balanzia.privacy.intro')}
             </p>
             
             <p className="text-base text-gray-600 dark:text-gray-300">
-              Balanzia is designed to respect your privacy. We collect and process only the minimum data needed to provide the core features of the App.
+              {t('balanzia.privacy.respect')}
             </p>
 
             <div className="space-y-4">

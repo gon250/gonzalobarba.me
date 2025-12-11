@@ -1,38 +1,16 @@
 import Head from "next/head";
 import Image from "next/image";
 import { FaLinkedin, FaXTwitter } from "react-icons/fa6";
-import { useState, useEffect } from "react";
-
 import ProfileImg from "../public/me.jpg";
-
 import PlaningPokerLogo from "../public/poker-logo.svg";
 import SupaHabitsLogo from "../public/supahabits-logo.png";
 import Header from "../components/header";
 import Link from "next/link";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export default function Home() {
-  const [darkMode, setDarkMode] = useState(() => {
-    // Initialize from localStorage if available
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('darkMode') === 'true';
-    }
-    return false;
-  });
+  const { t } = useLanguage();
 
-  useEffect(() => {
-    // Apply dark mode class to document
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('darkMode', 'true');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('darkMode', 'false');
-    }
-  }, [darkMode]);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
   return (
     <>
       <Head>
@@ -43,7 +21,7 @@ export default function Home() {
       </Head>
 
       <main className="relative min-h-screen font-mono bg-white dark:bg-gray-900 transition-colors duration-300">
-        <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        <Header />
         <div className="flex flex-col lg:flex-row pb-8 lg:pb-0 max-w-[1800px] mx-auto">
           <section className="shrink-0 space-y-4 lg:space-y-8 lg:w-[350px] xl:w-[500px] p-6 lg:p-16 lg:pr-0 xl:pr-16">
             <div className="flex gap-4 lg:gap-8 lg:flex-col justify-start items-start">
@@ -63,7 +41,7 @@ export default function Home() {
             </div>
             <div className="lg:text-lg leading-relaxed">
               <p className="text-gray-700 dark:text-gray-300">
-                Full Stack Engineer, front-end passionate and games enthusiast.
+                {t('home.description')}
               </p>
             </div>
             <div className="lg:text-lg leading-relaxed">
@@ -93,16 +71,16 @@ export default function Home() {
                            height={20}
                            className="w-5 h-5 lg:w-6 lg:h-6"
                            src={SupaHabitsLogo} />
-                    <p className="mr-auto font-bold lg:text-lg text-gray-900 dark:text-white">SupaHabits</p>
+                    <p className="mr-auto font-bold lg:text-lg text-gray-900 dark:text-white">{t('home.projects.supahabits.name')}</p>
                     <div className="flex gap-2">
                       <span
                         className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-green-400 dark:border-green-600">
-                        Active
+                        {t('home.projects.supahabits.status')}
                       </span>
                     </div>
                   </div>
                   <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mt-2">
-                    Creating beneficial habits and finding solutions to common problems.
+                    {t('home.projects.supahabits.description')}
                   </p>
                 </a>
               </li>
@@ -116,16 +94,16 @@ export default function Home() {
                     <span className="text-xl">
                       🎸
                     </span>
-                    <p className="mr-auto font-bold lg:text-lg text-gray-900 dark:text-white">SharePlaylist</p>
+                    <p className="mr-auto font-bold lg:text-lg text-gray-900 dark:text-white">{t('home.projects.shareplaylist.name')}</p>
                     <div className="flex gap-2">
                       <span
                         className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-green-400 dark:border-green-600">
-                        Active
+                        {t('home.projects.shareplaylist.status')}
                       </span>
                     </div>
                   </div>
                   <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mt-2">
-                    Create music playlists and invite friends to add their favorite tracks.
+                    {t('home.projects.shareplaylist.description')}
                   </p>
                 </a>
               </li>
@@ -139,16 +117,16 @@ export default function Home() {
                     <span className="text-xl">
                       🌧️
                     </span>
-                    <p className="mr-auto font-bold lg:text-lg text-gray-900 dark:text-white">LluviaApp</p>
+                    <p className="mr-auto font-bold lg:text-lg text-gray-900 dark:text-white">{t('home.projects.lluviaapp.name')}</p>
                     <div className="flex gap-2">
                       <span
                         className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-green-400 dark:border-green-600">
-                        Active
+                        {t('home.projects.lluviaapp.status')}
                       </span>
                     </div>
                   </div>
                   <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mt-2">
-                    Nature sounds generator for relaxation and focus.
+                    {t('home.projects.lluviaapp.description')}
                   </p>
                 </a>
               </li>
@@ -164,16 +142,16 @@ export default function Home() {
                            height={20}
                            className="w-5 h-5 lg:w-6 lg:h-6"
                            src={PlaningPokerLogo} />
-                    <p className="mr-auto font-bold lg:text-lg text-gray-900 dark:text-white">Poinpoin</p>
+                    <p className="mr-auto font-bold lg:text-lg text-gray-900 dark:text-white">{t('home.projects.poinpoin.name')}</p>
                     <div className="flex gap-2">
                       <span
                         className="bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-red-400 dark:border-red-600">
-                        Discontinued
+                        {t('home.projects.poinpoin.status')}
                       </span>
                     </div>
                   </div>
                   <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mt-2">
-                    Interactive planning poker tool for agile teams.
+                    {t('home.projects.poinpoin.description')}
                   </p>
                 </a>
               </li>
@@ -186,17 +164,17 @@ export default function Home() {
                     <span className="text-xl">
                       🌊
                     </span>
-                    <p className="mr-auto font-bold lg:text-lg text-gray-900 dark:text-white">Mareas Sanlúcar</p>
+                    <p className="mr-auto font-bold lg:text-lg text-gray-900 dark:text-white">{t('home.projects.mareas.name')}</p>
                     <div className="flex gap-2">
                       <span
                         className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-green-400 dark:border-green-600"
                       >
-                        Active
+                        {t('home.projects.mareas.status')}
                       </span>
                     </div>
                   </div>
                   <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mt-2">
-                    iOS app to view Sanlúcar de Barrameda tides in real time.
+                    {t('home.projects.mareas.description')}
                   </p>
                 </Link>
               </li>
@@ -209,17 +187,17 @@ export default function Home() {
                     <span className="text-xl">
                       🔋
                     </span>
-                    <p className="mr-auto font-bold lg:text-lg text-gray-900 dark:text-white">Balanzia</p>
+                    <p className="mr-auto font-bold lg:text-lg text-gray-900 dark:text-white">{t('home.projects.balanzia.name')}</p>
                     <div className="flex gap-2">
                       <span
                         className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-green-400 dark:border-green-600"
                       >
-                        Active
+                        {t('home.projects.balanzia.status')}
                       </span>
                     </div>
                   </div>
                   <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mt-2">
-                    Calculate your body battery, bio age and more with Balanzia.
+                    {t('home.projects.balanzia.description')}
                   </p>
                 </Link>
               </li>
