@@ -6,10 +6,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ message: "Method Not Allowed" });
   }
 
-  const { name, email, message } = req.body ?? {};
+  const sanitize = (value: unknown) => (typeof value === "string" ? value.trim() : "");
+  const name = sanitize(req.body?.name);
+  const rawEmail = sanitize(req.body?.email);
+  const email = rawEmail.toLowerCase();
+  const message = sanitize(req.body?.message);
 
-  if (!name || !email || !message) {
-    return res.status(400).json({ message: "Missing required fields" });
+  if (!name || name.length < 2) {
+    return res.status(400).json({ message: "Name is too short" });
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return res.status(400).json({ message: "Invalid email format" });
+  }
+
+  if (!message || message.length < 10) {
+    return res.status(400).json({ message: "Message is too short" });
   }
 
   const botToken = process.env.BALANZIA_TELEGRAM_BOT_TOKEN;
@@ -20,7 +33,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const formattedMessage = `Balanzia support request\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
+    const formattedMessage = [
+      "Balanzia support request",
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Received: ${new Date().toISOString()}`,
+      "Message:",
+      message,
+    ].join("\n\n");
 
     const telegramResponse = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       method: "POST",
@@ -31,6 +51,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       body: JSON.stringify({
         chat_id: chatId,
         text: formattedMessage,
+        disable_web_page_preview: true,
       }),
     });
 

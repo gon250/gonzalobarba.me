@@ -8,6 +8,9 @@ export default function BalanziaSupport() {
   const { t } = useLanguage();
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
+  const supportEmail = "support@gonzalobarba.me";
+  const supportHours = "Monday to Friday, 09:00–18:00 CET";
+  const responseTime = "within 24 hours";
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -58,6 +61,10 @@ export default function BalanziaSupport() {
             </p>
           </header>
 
+          <p className="mb-8 text-base text-gray-700 dark:text-gray-300">
+            ¿Necesitas ayuda o tienes comentarios? Contáctanos a continuación.
+          </p>
+
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="name" className="block text-sm font-semibold mb-2">
@@ -103,14 +110,18 @@ export default function BalanziaSupport() {
               disabled={status === "loading"}
               className="w-full lg:w-auto px-6 py-2 font-semibold rounded-md bg-gray-900 text-white hover:bg-gray-700 disabled:opacity-50 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-gray-300"
             >
-              {status === "loading" ? t('balanzia.form.sending') : t('balanzia.form.send')}
+              {status === "loading" ? t("balanzia.form.sending") : t("balanzia.form.send")}
             </button>
 
             {status === "success" && (
-              <p className="text-green-600 dark:text-green-400">{t('balanzia.form.success')}</p>
+              <p className="text-green-600 dark:text-green-400" role="status" aria-live="polite">
+                {t("balanzia.form.success")}
+              </p>
             )}
             {status === "error" && (
-              <p className="text-red-600 dark:text-red-400">{errorMessage || t('balanzia.form.error')}</p>
+              <p className="text-red-600 dark:text-red-400" role="alert" aria-live="assertive">
+                {errorMessage || t("balanzia.form.error")}
+              </p>
             )}
           </form>
 
@@ -212,14 +223,7 @@ export default function BalanziaSupport() {
             </div>
 
             <div className="space-y-3">
-              <h3 className="text-xl font-semibold">4. Children's privacy</h3>
-              <p className="text-base text-gray-600 dark:text-gray-300">
-                Balanzia is not directed to children under 16. If you are a parent or guardian and believe that a child has used the App and provided data, please contact us so we can help you delete any related data.
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              <h3 className="text-xl font-semibold">5. Your rights</h3>
+              <h3 className="text-xl font-semibold">4. Your rights</h3>
               <p className="text-base text-gray-600 dark:text-gray-300">
                 Depending on your location, you may have rights over your personal data, including:
               </p>
@@ -243,10 +247,11 @@ export default function BalanziaSupport() {
             </div>
 
             <div className="space-y-3">
-              <h3 className="text-xl font-semibold">6. Changes to this policy</h3>
+              <h3 className="text-xl font-semibold">5. Changes to this policy</h3>
               <p className="text-base text-gray-600 dark:text-gray-300">
                 We may update this privacy policy from time to time. Any changes will be published on this page with an updated "Last updated" date.
               </p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Last updated: 26 April 2024</p>
             </div>
           </section>
         </section>
