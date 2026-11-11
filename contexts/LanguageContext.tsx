@@ -105,7 +105,7 @@ const translations = {
         },
         exvaper: {
           name: 'Exvaper',
-          description: 'iOS app to quit vaping: craving SOS, streak and money saved.',
+          description: 'iOS app to quit vaping: 2-minute craving SOS, streak, money saved and a year of doodles. One payment.',
           status: 'Coming soon'
         }
       }
@@ -268,7 +268,7 @@ const translations = {
         },
         exvaper: {
           name: 'Exvaper',
-          description: 'App iOS para dejar de vapear: SOS de antojos, racha y dinero ahorrado.',
+          description: 'App iOS para dejar de vapear: SOS de antojos en 2 minutos, racha, dinero ahorrado y un año de dibujos. Un solo pago.',
           status: 'Próximamente'
         }
       }

@@ -11,7 +11,8 @@ type Section = { title: string; paragraphs?: string[]; items?: string[]; after?:
 export const content = {
   en: {
     backToHome: "← Back to home",
-    tagline: "Quit vaping, calmly. Beat cravings in 2 minutes and watch your streak and savings grow.",
+    tagline: "Quit vaping, calmly. Beat cravings in 2 minutes, watch your streak and savings grow, and turn every clean day into a doodle. One payment, no subscription.",
+    galleryAlt: ["Today: your streak, money saved and next milestone", "Craving SOS: 2 minutes of guided breathing", "Your year: every clean day becomes a doodle", "One payment, no subscription, 3 days free"],
     download: "Download on the App Store",
     privacyLink: "Privacy policy",
     supportLink: "Help & support",
@@ -41,6 +42,7 @@ export const content = {
         ["I slipped. Do I lose my streak?", "No. Tap I slipped on Today. A few puffs keep your streak. If you're vaping again, you can start a new streak; your history and longest streak are kept."],
         ["Can I change my plan or quit date?", "Yes, in Settings → Edit my plan. You can also change when your vape-free streak started."],
         ["Notifications aren't arriving", "Check Settings → Notifications in Exvaper and in your iPhone's Settings → Notifications → Exvaper. We send at most one a day, never between 9 pm and 9 am."],
+        ["What is Your year?", "Your first 365 days at a glance, with no scrolling. Every vape-free day becomes a small hand-drawn doodle. Tap any day to see it."],
         ["How do I add the widget?", "Touch and hold an empty area of your Home Screen or Lock Screen, tap Edit → Add Widget and search for Exvaper."],
         ["How do I delete my data?", "Your quit data is stored on your iPhone. Deleting the app deletes it."],
         ["Is Exvaper medical advice?", "No. Exvaper is a support tool. If you have health concerns or use nicotine replacement therapy, talk to a healthcare professional."],
@@ -76,7 +78,7 @@ export const content = {
         { title: "4. Purchases", paragraphs: ["The free trial and the lifetime unlock are processed by Apple through the App Store. We never see your payment details. The app only checks with Apple whether a purchase is active."] },
         { title: "5. Notifications", paragraphs: ["Reminders about milestones and your trial are scheduled on your iPhone. No notification data is sent to us."] },
         { title: "6. Contact form", paragraphs: ["If you write to us, we receive your name, email and message, and use them only to reply to you. We delete them once your request is resolved."] },
-        { title: "7. Children", paragraphs: ["Exvaper is rated for ages 13 and over. We don't knowingly collect personal data from children. If you are a parent and have a question, contact us."] },
+        { title: "7. Children", paragraphs: ["Exvaper is rated for ages 12 and over on the App Store. We don't knowingly collect personal data from children. If you are a parent and have a question, contact us."] },
         {
           title: "8. Your rights",
           paragraphs: ["Under the GDPR you can ask us about the data we process, object to it or ask for it to be deleted, using the contact form. Because the statistics are anonymous, we may not be able to link them to you. You can also complain to your data protection authority (in Spain, the AEPD)."],
@@ -87,7 +89,8 @@ export const content = {
   },
   es: {
     backToHome: "← Volver al inicio",
-    tagline: "Deja de vapear con calma. Supera los antojos en 2 minutos y mira cómo crecen tu racha y tus ahorros.",
+    tagline: "Deja de vapear con calma. Supera los antojos en 2 minutos, mira cómo crecen tu racha y tus ahorros y convierte cada día limpio en un dibujo. Un solo pago, sin suscripción.",
+    galleryAlt: ["Hoy: tu racha, el dinero ahorrado y tu próximo logro", "SOS antojo: 2 minutos de respiración guiada", "Tu año: cada día limpio se convierte en un dibujo", "Un solo pago, sin suscripción, 3 días gratis"],
     download: "Descargar en el App Store",
     privacyLink: "Política de privacidad",
     supportLink: "Ayuda y soporte",
@@ -117,6 +120,7 @@ export const content = {
         ["He fallado. ¿Pierdo mi racha?", "No. Toca He fallado en Hoy. Unas caladas mantienen tu racha. Si has vuelto a vapear, puedes empezar una racha nueva; tu historial y tu racha más larga se guardan."],
         ["¿Puedo cambiar mi plan o mi fecha?", "Sí, en Ajustes → Editar mi plan. También puedes cambiar cuándo empezó tu racha sin vapear."],
         ["No me llegan las notificaciones", "Revisa Ajustes → Notificaciones en Exvaper y en los Ajustes del iPhone → Notificaciones → Exvaper. Enviamos como mucho una al día y nunca entre las 21:00 y las 9:00."],
+        ["¿Qué es Tu año?", "Tus primeros 365 días de un vistazo, sin hacer scroll. Cada día sin vapear se convierte en un pequeño dibujo hecho a mano. Toca un día para verlo."],
         ["¿Cómo añado el widget?", "Mantén pulsado un espacio vacío de la pantalla de inicio o de bloqueo, toca Editar → Añadir widget y busca Exvaper."],
         ["¿Cómo borro mis datos?", "Tus datos están en tu iPhone. Al eliminar la app, se borran."],
         ["¿Exvaper es un consejo médico?", "No. Exvaper es una herramienta de apoyo. Si tienes dudas sobre tu salud o usas terapia sustitutiva de nicotina, consulta con un profesional sanitario."],
@@ -152,7 +156,7 @@ export const content = {
         { title: "4. Compras", paragraphs: ["La prueba gratis y el desbloqueo para siempre los procesa Apple a través del App Store. Nunca vemos tus datos de pago. La app solo consulta a Apple si una compra está activa."] },
         { title: "5. Notificaciones", paragraphs: ["Los recordatorios de logros y de tu prueba se programan en tu iPhone. No se nos envía ningún dato de las notificaciones."] },
         { title: "6. Formulario de contacto", paragraphs: ["Si nos escribes, recibimos tu nombre, tu email y tu mensaje, y solo los usamos para responderte. Los borramos cuando tu consulta queda resuelta."] },
-        { title: "7. Menores", paragraphs: ["Exvaper está clasificada para mayores de 13 años. No recogemos conscientemente datos personales de menores. Si eres padre, madre o tutor y tienes una duda, contáctanos."] },
+        { title: "7. Menores", paragraphs: ["Exvaper está clasificada para mayores de 12 años en el App Store. No recogemos conscientemente datos personales de menores. Si eres padre, madre o tutor y tienes una duda, contáctanos."] },
         {
           title: "8. Tus derechos",
           paragraphs: ["Según el RGPD puedes preguntarnos por los datos que tratamos, oponerte a ello o pedir que se borren, a través del formulario de contacto. Como las estadísticas son anónimas, puede que no podamos vincularlas contigo. También puedes reclamar ante la Agencia Española de Protección de Datos (AEPD)."],

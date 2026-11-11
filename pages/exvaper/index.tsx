@@ -3,7 +3,7 @@ import ExvaperLayout, { useExvaperLanguage } from "../../components/exvaper/layo
 import { content } from "../../components/exvaper/content";
 
 const inputClass =
-  "w-full px-4 py-2 border border-gray-300 rounded-md bg-white text-gray-900 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-100";
+  "w-full px-4 py-2 border border-gray-300 rounded-md bg-white text-gray-900 focus:border-[#2B2BFF] focus:ring-2 focus:ring-[#2B2BFF] dark:bg-gray-800 dark:border-gray-600 dark:text-gray-100";
 
 export default function ExvaperSupport() {
   const lang = useExvaperLanguage();
@@ -30,7 +30,7 @@ export default function ExvaperSupport() {
   }
 
   return (
-    <ExvaperLayout lang={lang} title={t.title}>
+    <ExvaperLayout lang={lang} title={t.title} gallery>
       <h2 className="text-2xl font-semibold mb-3">{t.heading}</h2>
       <p className="mb-10 text-base text-gray-700 dark:text-gray-300">{t.intro}</p>
 
