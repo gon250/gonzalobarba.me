@@ -102,6 +102,11 @@ const translations = {
           name: 'Balanzia',
           description: 'iOS app to calculate your body battery, bio age and more.',
           status: 'Active'
+        },
+        exvaper: {
+          name: 'Exvaper',
+          description: 'iOS app to quit vaping: craving SOS, streak and money saved.',
+          status: 'Coming soon'
         }
       }
     },
@@ -260,6 +265,11 @@ const translations = {
           name: 'Balanzia',
           description: 'App iOS para calcular tu batería corporal, edad biológica y más.',
           status: 'Activo'
+        },
+        exvaper: {
+          name: 'Exvaper',
+          description: 'App iOS para dejar de vapear: SOS de antojos, racha y dinero ahorrado.',
+          status: 'Próximamente'
         }
       }
     },

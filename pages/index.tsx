@@ -4,6 +4,7 @@ import { FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import ProfileImg from "../public/me.jpg";
 import PlaningPokerLogo from "../public/poker-logo.svg";
 import SupaHabitsLogo from "../public/supahabits-logo.png";
+import ExvaperLogo from "../public/exvaper-logo.png";
 import Header from "../components/header";
 import Link from "next/link";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -175,6 +176,27 @@ export default function Home() {
                   </div>
                   <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mt-2">
                     {t('home.projects.mareas.description')}
+                  </p>
+                </Link>
+              </li>
+              <li className="card duration-200 h-min col-span-1 w-full">
+                <Link
+                  className="cursor-pointer block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 transition-colors"
+                  href="/exvaper"
+                >
+                  <div className="flex items-center gap-y-1 gap-x-2 lg:gap-x-3 flex-wrap">
+                    <Image className="rounded-md" width={28} height={28} alt="Exvaper" src={ExvaperLogo} />
+                    <p className="mr-auto font-bold lg:text-lg text-gray-900 dark:text-white">{t('home.projects.exvaper.name')}</p>
+                    <div className="flex gap-2">
+                      <span
+                        className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 text-xs font-medium me-2 px-2.5 py-0.5 rounded border border-blue-400 dark:border-blue-600"
+                      >
+                        {t('home.projects.exvaper.status')}
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm lg:text-base mt-2">
+                    {t('home.projects.exvaper.description')}
                   </p>
                 </Link>
               </li>
