@@ -4,7 +4,7 @@
 export type Lang = "en" | "es";
 
 export const APP_STORE_URL = "https://apps.apple.com/app/id6833396669";
-export const UPDATED = { en: "Last updated: 11 November 2026", es: "Última actualización: 11 de noviembre de 2026" };
+export const UPDATED = { en: "Last updated: 13 November 2026", es: "Última actualización: 13 de noviembre de 2026" };
 
 type Section = { title: string; paragraphs?: string[]; items?: string[]; after?: string[] };
 
@@ -44,7 +44,7 @@ export const content = {
         ["Notifications aren't arriving", "Check Settings → Notifications in Exvaper and in your iPhone's Settings → Notifications → Exvaper. We send at most one a day, never between 9 pm and 9 am."],
         ["What is Your year?", "Your first 365 days at a glance, with no scrolling. Every vape-free day becomes a small hand-drawn doodle. Tap any day to see it."],
         ["How do I add the widget?", "Touch and hold an empty area of your Home Screen or Lock Screen, tap Edit → Add Widget and search for Exvaper."],
-        ["How do I delete my data?", "Your quit data is stored on your iPhone. Deleting the app deletes it."],
+        ["How do I delete my data?", "Go to Settings → Delete all my data in Exvaper. It removes your plan, streaks and logs from your iPhone and from your iCloud. Deleting the app only removes the copy on that iPhone."],
         ["Is Exvaper medical advice?", "No. Exvaper is a support tool. If you have health concerns or use nicotine replacement therapy, talk to a healthcare professional."],
       ] as [string, string][],
     },
@@ -54,15 +54,15 @@ export const content = {
       summaryTitle: "In short",
       summary: [
         "There is no account and no sign-up.",
-        "Your quit plan, streaks, cravings and puffs are stored only on your iPhone.",
+        "Your quit plan, streaks, cravings and puffs are stored on your iPhone and in your own iCloud, never on our servers.",
         "We collect anonymous usage statistics to improve the app.",
         "No ads, no tracking across apps or websites, and we never sell data.",
       ],
       sections: [
         { title: "1. Who we are", paragraphs: ["Exvaper is developed by Gonzalo Barba, based in Spain. For any privacy question, use the contact form on the support page."] },
         {
-          title: "2. Data that stays on your iPhone",
-          paragraphs: ["What you enter in Exvaper is saved on your device and never sent to us: your quit or cut-down plan, what you vape and what it costs, nicotine strength, your reasons, your streaks, slips, cravings and their triggers, logged puffs and your savings goal. It is removed when you delete the app. Like any app data, it may be included in your own iPhone backups, which Apple manages for you."],
+          title: "2. Data that stays with you",
+          paragraphs: ["What you enter in Exvaper is saved on your device and never sent to us: your quit or cut-down plan, what you vape and what it costs, nicotine strength, your reasons, your streaks, slips, cravings and their triggers, logged puffs, the days you confirm without vaping and your savings goal.", "If iCloud is on for Exvaper, this data is also kept in the private iCloud database of your Apple Account (CloudKit), so a new or second iPhone can restore it. Apple stores it under its own privacy terms; we can't see or access it. You can turn this off in iOS Settings → your name → iCloud.", "Settings → Delete all my data removes it from your iPhone and your iCloud. Deleting the app removes only the copy on that iPhone. Like any app data, it may also be included in your own iPhone backups.", "Share cards are created on your iPhone and only go where you send them. Money saved appears on them only if you turn it on."],
         },
         {
           title: "3. Anonymous usage statistics",
@@ -76,7 +76,7 @@ export const content = {
           after: ["We process these statistics on the basis of our legitimate interest in improving the app and keep them only as long as they are useful for that. You can object at any time through the contact form."],
         },
         { title: "4. Purchases", paragraphs: ["The free trial and the lifetime unlock are processed by Apple through the App Store. We never see your payment details. The app only checks with Apple whether a purchase is active."] },
-        { title: "5. Notifications", paragraphs: ["Reminders about milestones and your trial are scheduled on your iPhone. No notification data is sent to us."] },
+        { title: "5. Notifications", paragraphs: ["Reminders about milestones, your trial and, while cutting down, logging your puffs are scheduled on your iPhone. No notification data is sent to us."] },
         { title: "6. Contact form", paragraphs: ["If you write to us, we receive your name, email and message, and use them only to reply to you. We delete them once your request is resolved."] },
         { title: "7. Children", paragraphs: ["Exvaper is rated for ages 12 and over on the App Store. We don't knowingly collect personal data from children. If you are a parent and have a question, contact us."] },
         {
@@ -122,7 +122,7 @@ export const content = {
         ["No me llegan las notificaciones", "Revisa Ajustes → Notificaciones en Exvaper y en los Ajustes del iPhone → Notificaciones → Exvaper. Enviamos como mucho una al día y nunca entre las 21:00 y las 9:00."],
         ["¿Qué es Tu año?", "Tus primeros 365 días de un vistazo, sin hacer scroll. Cada día sin vapear se convierte en un pequeño dibujo hecho a mano. Toca un día para verlo."],
         ["¿Cómo añado el widget?", "Mantén pulsado un espacio vacío de la pantalla de inicio o de bloqueo, toca Editar → Añadir widget y busca Exvaper."],
-        ["¿Cómo borro mis datos?", "Tus datos están en tu iPhone. Al eliminar la app, se borran."],
+        ["¿Cómo borro mis datos?", "Ve a Ajustes → Borrar todos mis datos en Exvaper. Borra tu plan, tus rachas y tus registros de tu iPhone y de tu iCloud. Eliminar la app solo borra la copia de ese iPhone."],
         ["¿Exvaper es un consejo médico?", "No. Exvaper es una herramienta de apoyo. Si tienes dudas sobre tu salud o usas terapia sustitutiva de nicotina, consulta con un profesional sanitario."],
       ] as [string, string][],
     },
@@ -132,15 +132,15 @@ export const content = {
       summaryTitle: "En resumen",
       summary: [
         "No hay cuentas ni registro.",
-        "Tu plan, tus rachas, tus antojos y tus caladas se guardan solo en tu iPhone.",
+        "Tu plan, tus rachas, tus antojos y tus caladas se guardan en tu iPhone y en tu propio iCloud, nunca en nuestros servidores.",
         "Recogemos estadísticas de uso anónimas para mejorar la app.",
         "Sin anuncios, sin rastreo entre apps o webs, y nunca vendemos datos.",
       ],
       sections: [
         { title: "1. Quiénes somos", paragraphs: ["Exvaper lo desarrolla Gonzalo Barba, con sede en España. Para cualquier duda sobre privacidad, usa el formulario de la página de soporte."] },
         {
-          title: "2. Datos que se quedan en tu iPhone",
-          paragraphs: ["Lo que introduces en Exvaper se guarda en tu dispositivo y nunca se nos envía: tu plan para dejarlo o reducir, qué vapeas y cuánto cuesta, la concentración de nicotina, tus motivos, tus rachas, deslices, antojos y lo que los provoca, las caladas que apuntas y tu objetivo de ahorro. Se borra al eliminar la app. Como cualquier dato de una app, puede incluirse en tus propias copias de seguridad del iPhone, que gestiona Apple."],
+          title: "2. Datos que se quedan contigo",
+          paragraphs: ["Lo que introduces en Exvaper se guarda en tu dispositivo y nunca se nos envía: tu plan para dejarlo o reducir, qué vapeas y cuánto cuesta, la concentración de nicotina, tus motivos, tus rachas, deslices, antojos y lo que los provoca, las caladas que apuntas, los días que confirmas sin vapear y tu objetivo de ahorro.", "Si iCloud está activado para Exvaper, estos datos también se guardan en la base de datos privada de iCloud de tu cuenta de Apple (CloudKit), para que un iPhone nuevo o un segundo iPhone pueda recuperarlos. Apple los guarda según sus propias condiciones de privacidad; nosotros no podemos verlos ni acceder a ellos. Puedes desactivarlo en Ajustes de iOS → tu nombre → iCloud.", "Ajustes → Borrar todos mis datos los borra de tu iPhone y de tu iCloud. Eliminar la app solo borra la copia de ese iPhone. Como cualquier dato de una app, también pueden incluirse en tus propias copias de seguridad del iPhone.", "Las tarjetas para compartir se crean en tu iPhone y solo van adonde tú las envíes. El dinero ahorrado solo aparece si lo activas."],
         },
         {
           title: "3. Estadísticas de uso anónimas",
@@ -154,7 +154,7 @@ export const content = {
           after: ["Tratamos estas estadísticas por nuestro interés legítimo en mejorar la app y solo las conservamos mientras sean útiles para ello. Puedes oponerte cuando quieras a través del formulario de contacto."],
         },
         { title: "4. Compras", paragraphs: ["La prueba gratis y el desbloqueo para siempre los procesa Apple a través del App Store. Nunca vemos tus datos de pago. La app solo consulta a Apple si una compra está activa."] },
-        { title: "5. Notificaciones", paragraphs: ["Los recordatorios de logros y de tu prueba se programan en tu iPhone. No se nos envía ningún dato de las notificaciones."] },
+        { title: "5. Notificaciones", paragraphs: ["Los recordatorios de logros, de tu prueba y, mientras reduces, de apuntar tus caladas se programan en tu iPhone. No se nos envía ningún dato de las notificaciones."] },
         { title: "6. Formulario de contacto", paragraphs: ["Si nos escribes, recibimos tu nombre, tu email y tu mensaje, y solo los usamos para responderte. Los borramos cuando tu consulta queda resuelta."] },
         { title: "7. Menores", paragraphs: ["Exvaper está clasificada para mayores de 12 años en el App Store. No recogemos conscientemente datos personales de menores. Si eres padre, madre o tutor y tienes una duda, contáctanos."] },
         {
